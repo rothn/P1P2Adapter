@@ -383,7 +383,7 @@
       (pins R11-1 C5-1)
     )
     (net GND
-      (pins U1-20 U1-16 U1-9 R10-2 R7-1 J1-5 D2-2 D1-2 C9-2 C8-2 C7-2 C6-2)
+      (pins U1-25 U1-20 U1-16 U1-9 R10-2 R7-1 J1-5 D2-2 D1-2 C9-2 C8-2 C7-2 C6-2)
     )
     (net +12V
       (pins U1-19 U1-18 J1-1 C8-1 C6-1)
@@ -453,5 +453,11 @@
     )
   )
   (wiring
+    (wire (path F.Cu 250  125980 -120400  125730 -120650)(net GND)(type protect))
+    (wire (path F.Cu 250  127530 -120400  125980 -120400)(net GND)(type protect))
+    (wire (path F.Cu 250  126480 -119900  126480 -118850)(net GND)(type protect))
+    (wire (path F.Cu 250  125730 -120650  126480 -119900)(net GND)(type protect))
+    (wire (path F.Cu 250  125480 -120900  125480 -122450)(net GND)(type protect))
+    (wire (path F.Cu 250  125730 -120650  125480 -120900)(net GND)(type protect))
   )
 )

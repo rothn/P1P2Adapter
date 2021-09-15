@@ -1,0 +1,79 @@
+
+(rules PCB P1P2 Adapter
+  (snap_angle 
+    fortyfive_degree
+  )
+  (autoroute_settings
+    (fanout off)
+    (eu.mihosoft.freerouting.autoroute on)
+    (postroute on)
+    (vias on)
+    (via_costs 50)
+    (plane_via_costs 5)
+    (start_ripup_costs 100)
+    (start_pass_no 959)
+    (layer_rule F.Cu
+      (active on)
+      (preferred_direction horizontal)
+      (preferred_direction_trace_costs 1.0)
+      (against_preferred_direction_trace_costs 3.1)
+    )
+    (layer_rule B.Cu
+      (active on)
+      (preferred_direction vertical)
+      (preferred_direction_trace_costs 1.0)
+      (against_preferred_direction_trace_costs 1.5)
+    )
+  )
+  (rule
+    (width 250.0)
+    (clear 174.0)
+    (clear 125.0 (type smd_to_turn_gap))
+    (clear 62.6 (type smd_smd))
+  )
+  (padstack "Via[0-1]_1200:1000_um"
+    (shape
+      (circle F.Cu 1200.0 0.0 0.0)
+    )
+    (shape
+      (circle B.Cu 1200.0 0.0 0.0)
+    )
+    (attach off)
+  )
+  (via 
+    "Via[0-1]_1200:1000_um" "Via[0-1]_1200:1000_um" default
+  )
+  (via 
+    "Via[0-1]_1200:1000_um-kicad_default" "Via[0-1]_1200:1000_um" "kicad_default"
+  )
+  (via_rule
+    default "Via[0-1]_1200:1000_um"
+  )
+  (via_rule
+    "kicad_default" "Via[0-1]_1200:1000_um-kicad_default"
+  )
+  (class default
+    (clearance_class default)
+    (via_rule default)
+    (rule
+      (width 250.0)
+    )
+    (circuit 
+      (use_layer F.Cu B.Cu)
+    )
+  )
+  (class "kicad_default"
+    "Net-(C1-Pad2)" P1 "Net-(C2-Pad2)" P2 "Net-(C3-Pad2)" "Net-(C3-Pad1)" HPA CAPP
+    "Net-(C5-Pad1)" GND +12V +5V HN "Net-(D5-Pad1)" DIN DOUT
+    RST VLOGIC AIO BIO HP TERM "Net-(R7-Pad2)" TVT
+    TVL "Net-(U1-Pad24)" "Net-(U1-Pad13)" "Net-(U1-Pad6)"
+    (clearance_class "kicad_default")
+    (via_rule kicad_default)
+    (rule
+      (width 250.0)
+    )
+    (circuit 
+      (use_layer F.Cu B.Cu)
+    )
+  )
+)
